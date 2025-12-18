@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeWok Meknes - Asian Wok Street Food Experience</title>
+    <meta name="description" content="Experience authentic Asian wok street food in Meknes. Fresh noodles, rice bowls, and Asian fusion dishes in a warm, modern atmosphere.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#1a1a1a',
+                        'asian-red': '#d32f2f',
+                        'warm-beige': '#f5e6d3',
+                        'gold-acc': '#ffd700',
+                        'bamboo': '#8b7355',
+                        'dark-red': '#8b0000'
+                    },
+                    fontFamily: {
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'asian': ['Noto Sans JP', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(139, 0, 0, 0.5));
+        }
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .lantern-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .lantern-effect::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lantern-effect:hover::before {
+            opacity: 1;
+        }
+        .bamboo-border {
+            border-left: 4px solid #8b7355;
+        }
+    </style>
+</head>
+<body class="bg-warm-beige text-charcoal font-sans">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-charcoal shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-asian-red rounded-full flex items-center justify-center">
+                        <i class="fas fa-utensils text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-white font-asian">BeWok</h1>
+                        <p class="text-xs text-gold-acc">Meknes</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-gold-acc transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('home').scrollIntoView({behavior: 'smooth'})">Home</a>
+                    <a href="#about" class="text-white hover:text-gold-acc transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About</a>
+                    <a href="#menu" class="text-white hover:text-gold-acc transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Menu</a>
+                    <a href="#gallery" class="text-white hover:text-gold-acc transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">Gallery</a>
+                    <a href="#contact" class="text-white hover:text-gold-acc transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://picsum.photos/1920/1080?random=1" 
+                alt="BeWok Meknes restaurant interior with Asian decor and warm lighting" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+            />
+            <div class="absolute inset-0 hero-bg"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 animate-fade-in">
+            <h2 class="text-5xl md:text-7xl font-bold mb-4 font-asian">BeWok Meknes</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Asian Wok Street Food Experience</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button class="bg-asian-red hover:bg-dark-red text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 lantern-effect" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+                    View Menu
+                </button>
+                <button class="bg-transparent border-2 border-gold-acc hover:bg-gold-acc hover:text-charcoal text-gold-acc px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    Visit Us
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12 animate-slide-up">
+                <h2 class="text-4xl font-bold mb-6 font-asian text-charcoal">Our Story</h2>
+                <div class="bamboo-border pl-6 text-left">
+                    <p class="text-lg mb-4">Welcome to BeWok Meknes, where authentic Asian street food meets modern culinary artistry. We bring the vibrant energy of Asian night markets to the heart of Morocco.</p>
+                    <p class="text-lg mb-4">Our chefs masterfully prepare fresh wok dishes using traditional techniques and premium ingredients. Every meal is cooked to order, ensuring that burst of wok-hei (wok breath) flavor in every bite.</p>
+                    <p class="text-lg">Experience the perfect blend of warm, zen ambiance and urban street food energy. From our hand-picked spices to our carefully crafted sauces, we deliver an unforgettable Asian fusion experience.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-asian-red rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-fire text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fresh Wok Cooking</h3>
+                    <p>Each dish cooked to order over high heat for authentic flavor and texture.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-bamboo rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Premium Ingredients</h3>
+                    <p>Locally sourced vegetables and imported Asian spices for authentic taste.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-gold-acc rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-moon text-charcoal text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Zen Atmosphere</h3>
+                    <p>Warm lighting, bamboo decor, and cozy seating for a relaxing dining experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-warm-beige">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 font-asian text-charcoal">Our Menu</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 font-asian text-charcoal">Gallery</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="overflow-hidden rounded-lg">
+                    <img 
+                        src="https://picsum.photos/400/300?random=2" 
+                        alt="Restaurant interior with Asian lanterns and bamboo decor" 
+                        class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img 
+                        src="https://picsum.photos/400/300?random=3" 
+                        alt="Chef preparing wok noodles with fresh vegetables" 
+                        class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img 
+                        src="https://picsum.photos/400/300?random=4" 
+                        alt="Colorful Asian wok dish with shrimp and vegetables" 
+                        class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img 
+                        src="https://picsum.photos/400/300?random=5" 
+                        alt="Cozy dining area with warm lighting" 
+                        class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img 
+                        src="https://picsum.photos/400/300?random=6" 
+                        alt="Asian street food inspired presentation" 
+                        class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img 
+                        src="https://picsum.photos/400/300?random=7" 
+                        alt="Fresh ingredients and spices preparation" 
+                        class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contact" class="py-20 bg-charcoal text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 font-asian">Visit Us</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gold-acc">Location</h3>
+                    <p class="text-lg mb-4">Meknes, Morocco</p>
+                    <p class="mb-6">Immerse yourself in our Asian-inspired oasis in the heart of Meknes. Find us in the bustling city center, where traditional Moroccan charm meets modern Asian fusion.</p>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4 text-gold-acc">Contact Information</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-asian-red mr-3"></i>
+                                <span>+212 XXX-XXXXXX</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-asian-red mr-3"></i>
+                                <span>Open Daily: 11:00 AM - 11:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-gold-acc">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-asian-red rounded-full flex items-center justify-center hover:bg-dark-red transition-colors duration-300" onclick="event.preventDefault()">
+                                <i class="fab fa-instagram text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-asian-red rounded-full flex items-center justify-center hover:bg-dark-red transition-colors duration-300" onclick="event.preventDefault()">
+                                <i class="fab fa-facebook-f text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-asian-red rounded-full flex items-center justify-center hover:bg-dark-red transition-colors duration-300" onclick="event.preventDefault()">
+                                <i class="fab fa-whatsapp text-white text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg overflow-hidden h-96">
+                    <!-- Google Map Placeholder -->
+                    <div class="w-full h-full flex items-center justify-center bg-gray-700">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-4xl text-gold-acc mb-4"></i>
+                            <p>Google Maps Integration</p>
+                            <p class="text-sm text-gray-400">Meknes, Morocco Location</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-asian-red rounded-full flex items-center justify-center">
+                            <i class="fas fa-utensils text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-asian">BeWok Meknes</h3>
+                            <p class="text-sm text-gray-400">Asian Wok Street Food</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 mb-2">&copy; 2024 BeWok Meknes. All rights reserved.</p>
+                    <p class="text-gray-400">Experience the taste of Asia in Morocco</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('home').scrollIntoView({behavior: 'smooth'})">Home</a>
+                    <a href="#menu" class="text-gray-400 hover:text-white transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Menu</a>
+                    <a href="#gallery" class="text-gray-400 hover:text-white transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">Gallery</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300" onclick="event.preventDefault(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</a>
+                </div>
+                <p class="text-sm text-gray-500">Designed with <i class="fas fa-heart text-asian-red"></i> for food lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Define menu data
+        const menuItems = [
+            {
+                "id": 1,
+                "category": "Wok Noodles",
+                "name": "Chicken Chow Mein",
+                "description": "Stir-fried noodles with chicken, vegetables, and soy sauce",
+                "price": "85 MAD",
+                "spicy": true
+            },
+            {
+                "id": 2,
+                "category": "Wok Noodles",
+                "name": "Beef Lo Mein",
+                "description": "Soft noodles with tender beef and Asian greens",
+                "price": "95 MAD",
+                "spicy": false
+            },
+            {
+                "id": 3,
+                "category": "Rice Bowls",
+                "name": "Teriyaki Chicken Bowl",
+                "description": "Grilled chicken with teriyaki sauce over jasmine rice",
+                "price": "75 MAD",
+                "spicy": false
+            },
+            {
+                "id": 4,
+                "category": "Rice Bowls",
+                "name": "Spicy Shrimp Fried Rice",
+                "description": "Wok-fried rice with shrimp, egg, and chili",
+                "price": "90 MAD",
+                "spicy": true
+            },
+            {
+                "id": 5,
+                "category": "Chicken",
+                "name": "Kung Pao Chicken",
+                "description": "Spicy stir-fry with peanuts and vegetables",
+                "price": "80 MAD",
+                "spicy": true
+            },
+            {
+                "id": 6,
+                "category": "Beef",
+                "name": "Black Pepper Beef",
+                "description": "Tender beef strips with black pepper sauce",
+                "price": "95 MAD",
+                "spicy": true
+            },
+            {
+                "id": 7,
+                "category": "Shrimp",
+                "name": "Garlic Shrimp Stir-fry",
+                "description": "Fresh shrimp with garlic and seasonal vegetables",
+                "price": "100 MAD",
+                "spicy": false
+            },
+            {
+                "id": 8,
+                "category": "Sauces",
+                "name": "House Special Sauce",
+                "description": "Our signature blend of Asian spices and herbs",
+                "price": "15 MAD",
+                "spicy": true
+            },
+            {
+                "id": 9,
+                "category": "Sauces",
+                "name": "Sweet Chili Sauce",
+                "description": "Perfect balance of sweet and spicy",
+                "price": "12 MAD",
+                "spicy": false
+            }
+        ];
+
+        // Function to generate menu cards
+        function generateMenuCards() {
+            const menuContainer = document.querySelector('#menu .grid');
+            menuContainer.innerHTML = '';
+            
+            menuItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'menu-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300';
+                card.innerHTML = `
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span class="text-xs font-semibold bg-asian-red text-white px-2 py-1 rounded">${item.category}</span>
+                                ${item.spicy ? '<span class="ml-2 text-xs font-semibold bg-red-100 text-asian-red px-2 py-1 rounded">Spicy</span>' : ''}
+                            </div>
+                            <span class="text-xl font-bold text-gold-acc">${item.price}</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-charcoal">${item.name}</h3>
+                        <p class="text-gray-600 mb-4">${item.description}</p>
+                        <button class="w-full bg-charcoal hover:bg-gray-800 text-white py-2 rounded-lg transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                `;
+                menuContainer.appendChild(card);
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            generateMenuCards();
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('button.md\\:hidden');
+            const navLinks = document.querySelector('.hidden.md\\:flex');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-full');
+                navLinks.classList.toggle('left-0');
+                navLinks.classList.toggle('right-0');
+                navLinks.classList.toggle('bg-charcoal');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('space-y-4');
+            });
+
+            // Smooth scroll for all navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
